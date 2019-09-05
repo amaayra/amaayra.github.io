@@ -1,25 +1,24 @@
+---
+layout: compress
+---
 <!DOCTYPE html>
+<html lang="en">
+<head>
 
-<!--
-  portfolYOU Jekyll theme by Youssef Raafat
-  Free for personal and commercial use under the MIT license
-  https://github.com/YoussefRaafatNasry/portfolYOU
--->
+  {% include head.html %}
 
-<html lang="en" class="h-100">
+</head>
+<body id="{% if page.title %}{{ page.title | slugify }}{% else %}home{% endif %}" class="{{ page.layout | downcase }}-layout">
+  
+  {% include header.html %}
 
-{% include head.html %}
+  <main class="💈">
 
-<body class="d-flex flex-column h-100">
-
-  <main class="flex-shrink-0 container mt-5">
-  {% include navbar.html %}
-  {{ content }}
+    {{ content }}
+    
   </main>
 
   {% include footer.html %}
-  {% include scripts.html %}
 
 </body>
-
 </html>
