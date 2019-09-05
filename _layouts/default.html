@@ -1,24 +1,24 @@
-<!DOCTYPE HTML>{% capture showerify_input %}{{ content }}{% endcapture %}{% include showerify.html %}{% include setup.md %}
-<html lang="{{ lang }}">
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>{{ title | strip_html }}</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width={% if width %}{{ width }}{% else %}792{% endif %}, user-scalable=no">
-    <link rel="stylesheet" href="themes/{{ theme }}/styles/screen.css">
-    {% if page.style %}<style>
-{{ page.style }}</style>{%endif%}
+
+  {% include head.html %}
+
 </head>
-<body class="{{ body_class }}">
-    <header class="caption">
-        <h1>{{ title }}</h1>
-        {% if subtitle %}{{ subtitle }}{% endif %}
-    </header>
+<body id="{% if page.title %}{{ page.title | slugify }}{% else %}home{% endif %}" class="{{ page.layout | downcase }}-layout">
+  
+  {% include header.html %}
 
-    {{ showerify_output }}
+  <main class="💈">
 
-    {% if fork_url != '' %}<p class="badge"><a href="{{ fork_url }}">Fork me on Github</a></p>{% endif %}
-    {% if progress %}<div class="progress"><div></div></div>{% endif %}
-    <script src="shower/shower.min.js"></script>
-    <!-- Copyright © {{ site.time | date: "%Y" }} {{ author_name }}{% if author_url != '' %} — {{ author_url }}{% endif %}{% if company_name != '' %}, {{ company_name }}{% if company_url != '' %} — {{ company_url }}{% endif %}{% endif %} -->
+    {{ content }}
+    
+  </main>
+
+  {% include footer.html %}
+
 </body>
 </html>
